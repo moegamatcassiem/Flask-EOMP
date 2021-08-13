@@ -11,4 +11,3 @@ MarkupSafe==2.0.1
 PyJWT==1.4.2
 six==1.16.0
 Werkzeug==2.0.1
-web
