@@ -61,7 +61,6 @@ def identity(payload):
     user_id = payload['identity']
     return userid_table.get(user_id, None)
 
-
 # products table
 class Products(object):
     def __init__(self, id, product_id, product_name, product_price, product_quantity):
