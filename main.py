@@ -169,7 +169,7 @@ def get_users():
 
 # creates products
 @app.route('/products-create/', methods=['POST'])
-@jwt_required()
+# @jwt_required()
 def products_create():
     response = {}
 
@@ -221,7 +221,7 @@ def get_product(id):
 
 # delete product
 @app.route("/delete-product/<int:id>", )
-@jwt_required()
+# @jwt_required()
 def delete_product(id):
     response = {}
     with sqlite3.connect("store.db") as conn:
@@ -235,7 +235,7 @@ def delete_product(id):
 
 # route to edit products
 @app.route('/edit-product/<int:id>', methods=['PUT'])
-@jwt_required()
+# @jwt_required()
 def edit_product(id):
     response = {}
 
