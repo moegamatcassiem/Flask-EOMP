@@ -135,9 +135,9 @@ def user_registration():
     }
     if request.method == "POST":
         with sqlite3.connect("store.db") as conn:
-            email = request.form['email']
-            username = request.form['username']
-            password = request.form['password']
+            email = request.json['email']
+            username = request.json['username']
+            password = request.json['password']
             cursor = conn.cursor()
             cursor.execute("INSERT INTO users (email,username,password) VALUES(?,?,?)",
                            (email, username, password))
@@ -174,10 +174,10 @@ def products_create():
     response = {}
 
     if request.method == "POST":
-        product_id = request.form['product_id']
-        product_name = request.form['product_name']
-        product_quantity = request.form['product_price']
-        product_price = request.form['product_quantity']
+        product_id = request.json['product_id']
+        product_name = request.json['product_name']
+        product_quantity = request.json['product_price']
+        product_price = request.json['product_quantity']
         # total = int(product_price) * int(product_quantity)
 
         with sqlite3.connect('store.db') as conn:
@@ -241,9 +241,9 @@ def edit_product(id):
 
     if request.method == "PUT":
         with sqlite3.connect('store.db') as conn:
-            product_name = request.form['product_name']
-            product_price = request.form['product_price']
-            product_quantity = request.form['product_quantity']
+            product_name = request.json['product_name']
+            product_price = request.json['product_price']
+            product_quantity = request.json['product_quantity']
             put_data = {}
 
             if product_name is not None:
